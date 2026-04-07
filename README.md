@@ -87,6 +87,39 @@ The rest of the README assumes you're aligned with the definition above. The who
 
 ---
 
+## Built on the LinkedIn playbook (without losing your voice)
+
+We studied the actual mechanics of the platform — the 360Brew algorithm research, the engagement studies, the dwell time data, the format benchmarks, the 2M+ post analyses from independent researchers — and built every rule in this system around what LinkedIn actually rewards.
+
+**Every post the workflow generates is optimized for:**
+
+- **Hook engineering.** The first 210 characters earn the "see more" click or they don't. Every post is structured so the visible portion creates an open loop the reader has to expand to resolve. *(Rulebook §4.2)*
+- **Closing types that drive comments.** Type A (genuine question), Type B (incomplete statement), Type C (practical nudge), each tied to your specific LinkedIn goal. Statement-only endings are banned because they close the conversation before it starts. *(Rulebook §4.1)*
+- **Dwell time.** 200-350 word sweet spot, paragraph rhythm tuned for mobile readability, the strongest insight placed in the middle third of the post (not the end) to reward readers who stay past the fold. *(Rulebook §4.3)*
+- **Format diversity.** Text + image, carousel, poll, video, multi-image — with batch-level variety enforced so your feed doesn't get repetitive. *(Rulebook §5.1)*
+- **Hashtag strategy.** 0-2 in body, 2-4 in first comment, mid-volume range (10K-500K), no spam signals. *(Rulebook §7)*
+- **Posting cadence and timing.** Data-driven day selection, target audience's timezone (not yours), no weekend posts unless your engagement data says otherwise. *(Rulebook §4.7)*
+- **Pillar consistency over 60-90 days.** The LinkedIn algorithm builds topical authority signals that take weeks to compound. The system enforces it across every batch. *(Rulebook §4.8)*
+- **Hook-to-close coherence, see-more engineering, conversation continuation, image strategy, first-comment design** — the full engagement architecture, not a single trick. *(Rulebook §4-§5)*
+
+That's the playbook side. Most LinkedIn content tools stop here.
+
+**The thing most tools miss:** every algorithmic best practice in the world is worthless if your post sounds like the same generic AI thought leader as 50,000 other accounts. The platform rewards consistency, but only consistency that's *recognizably yours*. Optimized content that all sounds the same is the trap most AI content tools fall into — and it's exactly what makes the algorithm flag it as low-quality.
+
+So we built the second half of the system around protecting your voice while you optimize:
+
+- **Voice-locked to your real writing.** You paste 5 things you've already written into your brand profile. The system calibrates word choice, sentence rhythm, formality, contractions, and signature phrases from your actual writing — not from a "professional LinkedIn tone" preset.
+- **A 1,200-line rulebook of patterns to ban.** Tier 1 vocabulary (delve, leverage, harness, transformative), polished closing parallels, manufactured vulnerability arcs, two-word kickers, "Not because X. Because Y." constructs used more than once per post, 24 other AI sentence-level tells.
+- **An independent critic loop.** Every batch is reviewed by a fresh agent (in Claude Code, this is a sub-agent spawn — the user does nothing) that checks against the rulebook AND your specific voice samples. Catches the things the generator misses or unconsciously defends.
+- **Earned vulnerability over manufactured vulnerability.** Failures that still hurt, not failures with tidy redemption arcs. The single most important rule in the project — and the one that separates content people save from content people scroll past.
+- **Per-brand "always avoid" lists.** Your custom banned words, separate from the universal rulebook. What "playbook" means to a SaaS founder is not what it means to a designer.
+
+**Most LinkedIn tools optimize for the algorithm and lose the voice. A few optimize for voice and ignore the platform mechanics. We do both — because both matter, and they don't have to be in conflict.**
+
+The whole point of the project is to refuse the trap of doing it like everybody else. Optimized AND genuine. Not one or the other.
+
+---
+
 ## What you get
 
 - **A canonical rulebook** at [`rulebook/linkedin-growth-engine-rulebook.md`](./rulebook/linkedin-growth-engine-rulebook.md) — every content rule the system enforces, with reasoning. 11 sections covering ground rules, anti-patterns, quality gates, engagement architecture, format rules, hashtags, performance feedback, competitive intelligence, and reshare strategy.
@@ -256,13 +289,13 @@ Real talk on time: managing 3 brands is roughly 3x the steady-state time, so ~1.
 
 ---
 
-## What this is NOT
+## A few clarifications
 
-- **Not a LinkedIn automation tool.** It will not log into LinkedIn for you. It produces drafts; you publish them. (Reason: LinkedIn's posting API requires Marketing Developer Platform approval that's not granted to individuals, and browser automation risks account suspension. See [`docs/scheduling-options.md`](./docs/scheduling-options.md).)
-- **Not a content generator that runs on its own.** You need to fill in a brand profile with your real positioning, your real voice samples, and ideally your real story bank. The system is voice-locked to the inputs you give it.
-- **Not a SaaS product.** It's a markdown-based skill. Free, MIT licensed, no signups, no API keys, no telemetry. Clone the repo and use it.
-- **Not language-agnostic.** The rulebook is English-only. The banned vocabulary lists, em dash rules, and broetry patterns are English-specific. Fork it and translate if you need another language — see [`docs/customizing-the-anti-patterns.md`](./docs/customizing-the-anti-patterns.md).
-- **Not a 15-minute miracle.** The first batch is 60-90 minutes of focused work. Subsequent batches are 30-40 minutes. There is no version of "great LinkedIn content that sounds like you" that doesn't require this.
+Three things worth stating plainly so you have the right mental model from the start:
+
+- **It's a draft generator, not an autopilot.** The workflow produces 4 polished posts per week. You review them, decide which to ship, and schedule them yourself in LinkedIn's native scheduler. There is no version of this that logs into LinkedIn for you. (Background on why: LinkedIn's posting API requires Marketing Developer Platform approval that takes weeks and isn't granted to individuals, and browser automation risks account suspension. See [`docs/scheduling-options.md`](./docs/scheduling-options.md).)
+- **It's a markdown skill, not a SaaS.** Free, MIT licensed, no signups, no API keys, no telemetry. Clone the repo, point Claude at it, run it. We're not collecting anything and we're not charging for anything. The asset is the rulebook.
+- **It's English-only for v1.0.** The banned vocabulary lists, em dash rules, and broetry patterns are English-specific. If you need another language, fork the rulebook and translate it (the workflow itself is language-agnostic). See [`docs/customizing-the-anti-patterns.md`](./docs/customizing-the-anti-patterns.md).
 
 ---
 
