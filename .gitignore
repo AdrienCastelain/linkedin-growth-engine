@@ -1,0 +1,55 @@
+# LinkedIn Growth Engine — gitignore
+
+# User-specific files live in a _user/ subfolder per the CLAUDE.md bootstrap.
+# This is the canonical location for all per-user state.
+_user/
+
+# Legacy: if a user (or older bootstrap version) wrote files at the repo root,
+# keep these gitignored as a safety net so they're never accidentally committed.
+my-brand-profile.md
+my-content-audit.md
+my-industry-research.md
+my-content-agent.md
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursorignore
+
+# Output and working directories
+_workflow_outputs/
+_drafts/
+_archive/
+
+# Internal QA and review documents (should never ship)
+_install-test-report.md
+_review-notes/
+*.review.md
+
+# Environment and secrets (none expected, but defensive)
+.env
+.env.*
+*.key
+*.pem
+
+# Logs
+*.log
+
+# Lock files (this project has no dependencies, but defensive)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Compiled or generated files (none expected)
+dist/
+build/
+*.pyc
+__pycache__/
