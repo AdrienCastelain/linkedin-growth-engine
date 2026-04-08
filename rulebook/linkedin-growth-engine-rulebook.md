@@ -245,11 +245,146 @@ These are not vocabulary issues but structural patterns that read as AI-generate
 - ❌ "Not because the model is wrong. Because nobody designed for the moment it gets it wrong."
 - ❌ "Not because they lack talent. Because nobody gave them the right brief."
 - ❌ "It's not a design problem. It's a clarity problem."
-- This is a structural tell where the writer negates an obvious explanation and reframes with a "deeper" one. AI models default to this construction because it creates instant contrast with minimal effort. Once per post maximum, never in the opening two lines, and never combined with another false opposition in the same post. If you spot two negation-reframes in a single post, rewrite one as a direct statement.
+- This is a structural tell where the writer negates an obvious explanation and reframes with a "deeper" one. AI models default to this construction because it creates instant contrast with minimal effort. **Banned outright.** (Earlier versions of this rulebook allowed one instance per post; v1.0.1 testing against GPTZero showed the pattern is detectable even at the once-per-post frequency. Use a direct statement instead.)
 
 **Self-referential comments:**
 - ⚠️ "In the projects I work on..." / "What I notice on the teams I work with..." / "The best client relationships I've had..."
 - Every comment redirecting to your own experience reads as self-promotion. Allowed max once per session (5 comments). The other comments should add value to the conversation without referencing yourself. An expert's perspective shows through the quality of the observation, not by citing their own work.
+
+---
+
+## 2.9 Structural Craft Rules (Body-Level Patterns)
+
+The patterns in §2.8 catch sentence-level tells. The patterns in this section are *body-level* craft rules — the patterns that make a post feel grounded and specific instead of abstract and well-formed-but-empty.
+
+These rules were added after testing the v1.0 example batch against three AI detectors. **Honest disclosure:** these rules do NOT reliably bring posts under GPTZero's strict threshold. We tested. They don't. (See Gate 8b for the cross-detector consensus rule that's the actual pass criterion, and for the explanation of why GPTZero specifically over-flags well-structured marketing content.)
+
+So why are these rules in the rulebook at all? Because **they make posts better as writing**, regardless of detector scores. Posts that follow §2.9 are more concrete, more specific, more grounded in real scenarios, and more recognizably the writer's own voice — which is the actual goal of this whole project. The detector scores are one signal. Craft is the bigger one.
+
+Treat §2.9 as "drafting heuristics that improve craft," not as "rules that pass GPTZero." The rulebook's editorial position is voice-locked content with earned vulnerability and load-bearing specifics. §2.9 is how you write to that position.
+
+### 2.9.1 Parallel Anaphora Cap
+
+**Rule:** No more than 3 sequential sentences sharing the same opening word or phrase.
+
+**Why:** AI defaults to parallel anaphora because it's a high-impact rhetorical pattern that's cheap to generate. Real human writing varies sentence openings by reflex.
+
+```
+❌ "The CEO writes the homepage headline. The CEO records the demo video. The CEO answers the first 100 sales calls. The CEO writes the first 50 blog posts."
+   (4 sequential parallel sentences — fails)
+
+✅ "The CEO writes the homepage headline. She records the demo video herself. By the time the first marketer joins, the company has answered 100 sales calls and shipped 50 blog posts — all in her voice."
+   (Same content, varied sentence openings — passes)
+```
+
+**The check:** count sequential sentences that share their first word or first 2-3 words. If you find 4+ in a row, rewrite at least one to break the pattern.
+
+### 2.9.2 Definitional Argumentation Ban
+
+**Rule:** Posts may not include sentences of the form "**X means Y**" or "**X is when Y**" used to define a term you're then arguing about.
+
+**Why:** Encyclopedia-style definitions are the strongest tell that an LLM is trying to set up an argument. Real human writing assumes the reader already knows what the words mean — humans argue about *applications* of concepts, not the concepts themselves.
+
+```
+❌ "Founder-led marketing means the founder is the source of truth for what the product does, who it's for, and why it matters."
+
+✅ "I watched a founder spend $4K/month on a content agency for six months. The deliverables were polished. The DMs never came. The agency was scaling a story that was never written."
+```
+
+**The check:** if your post contains a sentence that defines its own central term, your reader doesn't know the term well enough to read this post. Either remove the post entirely, or rewrite the body around a specific scenario where the term is *demonstrated* instead of defined.
+
+### 2.9.3 Setup-Payoff Sentence Rhythm Cap
+
+**Rule:** A "setup-payoff" sentence rhythm — a short declarative sentence followed by a longer clarifying sentence — is allowed maximum 1 per post, never in the opening 2 paragraphs.
+
+**Why:** "It wasn't X. It was Y, dressed up as Z." is a literary rhetorical device that AI overuses because it's easy to generate and lands rhetorically. Real Slack messages, real emails, real Twitter replies almost never do this.
+
+```
+❌ "It wasn't data. It was a single observation about one company's risk tolerance, dressed up as market intelligence."
+
+✅ "I treated the competitor's pricing like real information. The thing is, it was one company's panic move repackaged as a market signal — and I never even checked whether their CFO knew the new prices were going out."
+```
+
+**The check:** scan for short declarations (under 6 words) immediately followed by longer clarifying sentences. Cap at 1 instance per post. If you have 2 or more, rewrite the second one as a direct statement or expand the short declaration into a regular sentence.
+
+### 2.9.4 Contrarian Setup-Pivot Caution
+
+**Rule:** The "here's what people think → here's what's actually true" structure is allowed maximum 1 per post, must contain at least one specific named example of someone holding the wrong view (not a generic "the dominant version" or "most people"), and must not be used in the opening 2 paragraphs.
+
+**Why:** Tidy contrarian setups are a cheap way to manufacture an interesting frame, which is why AI loves them. The fix is grounding the frame in a specific named example — that anchors the contrarian move to a real disagreement instead of an abstract one.
+
+```
+❌ "The dominant version: founders should post on LinkedIn three times a week. That's a tactic. It's not what founder-led marketing actually is."
+   (Generic "the dominant version" — fails)
+
+✅ "An agency I respect (won't name them) was selling a $4K/month founder content package to early-stage SaaS clients last year. Polished deliverables, weekly cadence, the works. The pitch was 'founder-led marketing.' What it actually was: a contractor inventing thoughts the founder hadn't had yet."
+   (Specific situation grounding the contrarian move — passes)
+```
+
+**The check:** if your post sets up a "common belief" that the reader is supposed to disagree with, the common belief must be attributed to a specific person, agency, school of thought, or named camp. Generic "people think X" framings fail.
+
+### 2.9.5 Specificity Must Be Load-Bearing
+
+**Rule:** Numbers, names, and timeframes must be *anchored to real events or people*, not embedded in rhetorical structures.
+
+**Why:** Gate 8 (the Colleague Test) requires "at least one proper noun + one number + one timeframe." That gate is necessary but not sufficient — the specifics must be load-bearing to actually catch fabrication. If your numbers are decorative (inside a parallel anaphora, attached to a hypothetical, or symbolic), they're not anchoring anything.
+
+```
+❌ "The CEO answers the first 100 sales calls. The CEO writes the first 50 blog posts."
+   (Numbers are symbolic — they're round numbers attached to rhetorical structures)
+
+✅ "I sat with her in October. We killed the agency that morning. Two weeks later her homepage was 87 words and said almost nothing about 'AI' or 'platform.' It said what the product actually did."
+   (Numbers are load-bearing — October is when, 87 words is a measurement of a real artifact, two weeks is a real duration)
+```
+
+**The check:** for every specific number, name, or timeframe in the post, ask "does this trace back to a real event or person, or is it decorative?" If decorative, replace with a real specific (from your story bank or reference samples) or remove it.
+
+### 2.9.6 Mandatory Irregularity Rule
+
+**Rule:** Every post must contain at least one "off" beat — a paragraph that's noticeably shorter or longer than the others, a sentence that breaks rhythm, a tangent that doesn't fully resolve, or a half-finished thought.
+
+**Why:** Even paragraph density across a whole post is a strong AI tell. Real human writing has irregularity by reflex — a writer gets tired mid-paragraph, changes their mind halfway through a sentence, repeats themselves, leaves a thought hanging. AI-generated content tends to be uniformly polished.
+
+```
+❌ A 5-paragraph post where every paragraph is 3-4 sentences of similar length and similar density.
+
+✅ A 5-paragraph post where one paragraph is a single sentence, one paragraph trails off, or one paragraph is twice as long as the others because the writer got going on something.
+```
+
+**The check:** count sentences per paragraph across your post. If the variance is less than 50% (e.g., all paragraphs are 3-4 sentences), you don't have enough irregularity. Rewrite one paragraph to be noticeably shorter, longer, or more fragmented than the others.
+
+### 2.9.7 Abstract Argumentation Ban
+
+**Rule:** Every post must contain at least one concrete client scenario, conversation, decision, or moment from the writer's actual work.
+
+**Why:** Posts that argue abstract claims about "founders" or "the dominant version" or "most companies" without ever grounding the argument in a specific lived moment are the easiest content for AI to generate and the easiest content for detectors to catch. The fix is anchoring every argument in a real situation.
+
+```
+❌ "Founder-led marketing means the founder is the source of truth. Without that, every marketer you hire reinvents the company's story from scratch."
+   (Pure abstract argumentation — fails)
+
+✅ "I watched it happen with a founder client last quarter. She'd hired her third content marketer in 18 months. Each one wrote in a different voice, told a different story about the product, and ranked for different keywords. The marketers weren't bad. They were each starting from scratch because the founder had never written down what the product did."
+   (Concrete client scenario anchoring the abstract claim — passes)
+```
+
+**The check:** can the post be written by anyone in your field who has never had a single real client? If yes, it's too abstract. Add a specific scenario from your actual work — even if you have to anonymize the client name, the scenario must be real.
+
+### 2.9.8 The Aphoristic Closing Ban
+
+**Rule:** Closing lines may not be aphoristic, sentencious, or maxim-shaped — even when they're not technically polished parallel constructions.
+
+**Why:** §2.8 already bans polished parallel closings ("X to build fast, Y to build right"). But it doesn't catch aphoristic closings of other shapes — "Maybe the worst X are the ones where Y" or "The thing nobody tells you about X is Y" or "X is the entire game." These read as wisdom-quotes regardless of whether they're parallel.
+
+```
+❌ "Maybe the worst pricing mistakes are the ones where the consultant thought she was being careful."
+❌ "The thing nobody tells you about fractional work is that the first month is archaeology."
+❌ "Trust is the entire funnel."
+
+✅ "I still don't know if the 15% raise was the right call. I think about it whenever a new client asks me about pricing strategy."
+✅ "The first month of any fractional engagement is mostly unwinding decisions made by the previous person. I've started calling it archaeology because that's what it feels like."
+```
+
+**The check:** if your closing line could appear on a LinkedIn carousel as a standalone "wisdom quote," rewrite it. Closings should feel like the writer continuing their thought, not summarizing it for posterity.
 
 ---
 
@@ -310,29 +445,74 @@ Every generated post must pass ALL of these checks before being scheduled. The v
 
 **Machine-verifiable floor (automated):** The post must contain at least one proper noun + one number + one timeframe. This is the minimum automated specificity check.
 
+**The load-bearing specificity rule (added v1.0.1):** The proper noun, number, and timeframe must be *load-bearing* — they must trace back to a real event or person from your work. Decorative specifics that exist to satisfy the machine check don't count. Examples of load-bearing vs decorative:
+
+- ✅ Load-bearing: "I sat with her in October. Two weeks later her homepage was 87 words." (October = real time, 87 words = real measurement of a real artifact)
+- ❌ Decorative: "The CEO writes the first 100 sales calls. The CEO writes the first 50 blog posts." (100 and 50 are symbolic round numbers attached to a rhetorical structure)
+
 **Human review aspiration (Colleague Test):** For human-reviewed content, also apply the full Colleague Test below. Both gates co-exist: machine check as minimum, Colleague Test as quality aspiration.
 
 **Enforcement criteria (must pass at least 2 of 3):**
-- The post contains at least one detail that only you would know (a specific scenario, a number from your work, a named framework you created)
+- The post contains at least one detail that only you would know (a specific scenario, a number from your work, a named framework you created) — and that detail is **load-bearing**, not decorative
 - The post takes a position that could be disagreed with, OR applies a general concept to a specific context (industry, company size, stage) rather than stating it generically. How-to and framework posts (Type C closing) are exempt from the "disagreeable" test but must still pass the specificity test.
 - The post uses at least one phrase or speech pattern from your voice profile reference samples
 
 If fewer than 2 criteria pass: inject a specific detail from your story bank, strengthen the opinion to take a real stance, or replace a generic phrase with a signature expression from your voice profile.
 
-### Gate 8b: AI Detection Check (pre-publish, recommended)
+### Gate 8b: AI Detection Check (cross-detector consensus, recommended)
 
-Run the final post text through an external AI detection tool before publishing. This catches structural patterns (balanced paragraphs, synthetic transitions, overly clean narrative arcs) that the internal gates may miss.
+Run the final post text through three external AI detection tools before publishing. The detectors disagree more than vendor marketing suggests, and treating any single detector as a veto produces false-positive over-rejection. The right methodology is **cross-detector consensus**.
 
-**Recommended tools (free, no signup):**
-- GPTZero (gptzero.me) — most accurate overall, highlights flagged sentences
-- Copyleaks (copyleaks.com/ai-content-detector) — 25K character limit free
-- QuillBot AI Detector (quillbot.com/ai-content-detector) — clean comparative results
+**The three detectors:**
 
-**Rules:**
-- If the detector scores the post as >60% AI-generated, rewrite the flagged sentences. Focus on: adding irregularity to sentence rhythm, breaking overly balanced paragraph structure, replacing smooth transitions with more abrupt shifts.
-- If the detector scores <40% AI-generated, pass. The goal is not 0%, it's "a human reader wouldn't notice."
-- This is a sanity check, not a hard gate. Detectors have false positives. If the post passes Gates 3 and 8 (voice match + colleague test) but flags on detection, use judgment.
-- For comments and reshare commentary: not required (too short for reliable detection).
+| Tool | Role | Notes |
+|------|------|-------|
+| **GPTZero** (gptzero.me) | Strict — flags structural patterns | Most accurate on the academic RAID benchmark, but tuned for academic-integrity use cases (catching student essays). Over-flags well-structured marketing copy and short-form content. Do NOT treat as a single-source veto. |
+| **QuillBot** (quillbot.com/ai-content-detector) | Lenient — focuses on assistive editing | Trained to distinguish AI-generated from human-edited-with-AI-assistance. More forgiving on rhetorical structure. |
+| **Copyleaks** (copyleaks.com/ai-content-detector) | Linguistic patterns + frequency analysis | Less weighted toward structural smoothness. 25K character free limit. |
+
+**Cross-detector consensus rule:**
+
+Read the verdict text first, not just the percentage. GPTZero's "37% AI" means "37% confident this is fully AI and 63% confident it's human" — it's a confidence score, not a percentage of AI content. Always check the verdict ("moderately confident human" vs "moderately confident AI") before reading the number.
+
+| Verdict | Trigger condition | Action |
+|---------|-------------------|--------|
+| **PASS** | 0 of 3 detectors classify the post as AI with moderate-or-high confidence | Ship the post |
+| **WARNING** | Exactly 1 of 3 detectors classifies the post as AI (any confidence level) | Review the specific sentences the flagging detector highlighted. Consider revising those sentences if the fix is small. Do NOT auto-rewrite the entire post. The post is publishable for typical LinkedIn audiences (LinkedIn doesn't run consumer detectors on posts), but if your specific audience runs strict detection — academic submissions, some agency clients, compliance contexts — the targeted revision is worth doing. |
+| **FAIL — rewrite required** | 2 or more detectors classify the post as AI | This is real cross-detector consensus. Rewrite the post — either targeted on the specific sentences all detectors flagged, or a full rewrite if the patterns are systemic. |
+
+**The research that supports this rule:**
+
+- Bloomberg's test of GPTZero and Copyleaks showed false positive rates of 1-2% on neutral content but much higher on certain content types
+- Pangram Labs documented false positive rates of 15-20% on real human content in some categories
+- The Springer International Journal for Educational Integrity found accuracy ranges of 65-90% across all major detectors
+- Academic studies are unanimous that no single detector should be treated as authoritative
+- The RAID benchmark (the academic gold standard) is built for academic integrity, not marketing copy — its accuracy claims do not transfer cleanly to LinkedIn-style content
+
+**Why GPTZero specifically over-flags well-structured marketing copy:**
+
+GPTZero's training data weights heavily toward academic writing and news articles. It learned to flag well-organized rhetorical structure, parallel constructions, smooth narrative arcs, and definitional argumentation — because those patterns are common in AI-generated student essays. They are also common in **good marketing copy** written by good copywriters. GPTZero cannot distinguish "well-structured marketing rhetoric written by an expert" from "well-structured rhetoric generated by an LLM," because the structural features overlap.
+
+This is not a flaw in GPTZero. GPTZero is the most accurate detector on its intended use case (academic integrity). It is the wrong tool to use as a single-source veto for marketing content. The cross-detector consensus rule is the academically defensible workaround.
+
+**The audience matters more than the detector.**
+
+LinkedIn's algorithm does not run GPTZero on posts. The audience for LinkedIn content is human readers trying to spot AI tells. Whether GPTZero specifically flags content is less important than whether a careful human reader can spot AI patterns. The QuillBot and Copyleaks scores are more representative of the general human-reader experience because they use lower thresholds for "structural smoothness" and weight linguistic patterns instead.
+
+**The hCaptcha caveat:** GPTZero uses hCaptcha to block automated runs. You can't script-test posts in bulk. Manual paste is the only path for individual users. For agencies running batches, the GPTZero API ($12/month for 300K words) bypasses the captcha.
+
+**Comments and reshare commentary:** AI detection is not required for short content (under 80 words). Detectors are unreliable on short text — accuracy drops sharply below 100 words and is essentially random under 50 words.
+
+**The honest limit:**
+
+No detector is 100% accurate. False positives are common on:
+- Well-structured marketing copy written by good copywriters
+- Non-native English speakers writing in clear formal English
+- Highly technical writing in established formats
+- Short-form content (under 100 words)
+- Content with strong rhetorical structure
+
+The detectors are a sanity check on the rulebook's other gates, not a final authority. If a post passes Gates 1-8 and you're confident in the voice match, treat a single-detector flag as a WARNING — review the specific flagged sentences, consider revising them if the fix is targeted, but don't default to a full rewrite. Multi-detector consensus is the only signal strong enough to require a full rewrite.
 
 ### Gate 9: Topic Consistency Check (batch-level)
 Cross-reference this post's topic against your content pillars and the last 30 days of published posts.

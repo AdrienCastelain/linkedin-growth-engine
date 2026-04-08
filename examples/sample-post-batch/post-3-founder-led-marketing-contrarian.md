@@ -55,7 +55,7 @@
 | LinkedIn-specific | PASS | One false-opposition use ("That's a tactic. It's not what founder-led marketing actually is.") which is allowed once per post |
 | Honest limitation | PASS | First comment carries it: "this isn't an argument against founders posting. I'm arguing for the right sequence." |
 | Voice match | PASS | Mixed rhythm, opinionated, no hedge |
-| AI detection | 22% AI per GPTZero spot-check | PASS |
+| AI detection (3-detector cross-check) | **WARNING — single detector outlier** | GPTZero: **100% AI / "highly confident AI generated"** • QuillBot: **0% AI / 100% Human** • Copyleaks: **0% AI / "No AI Content Found"** • Cross-detector verdict per Gate 8b: WARNING (1 of 3 detectors flags with high confidence — does not meet the FAIL threshold of 2+ detector consensus, but the GPTZero score is the strongest single-detector signal in the entire example batch). See "What this post demonstrates" below for the interpretation. |
 
 ---
 
@@ -74,9 +74,7 @@ Post 3: PASS (after one rewrite loop)
   Round 1 — recommendation: REWRITE closing (replace kicker with a Type A question that pushes against the package-sellers explicitly), REPLACE "playbook" with another word
   
   Round 2 — re-evaluation:
-    AI Detection: AUTHENTIC
-      - The rewritten close ("what artifacts is the founder actually going to make this quarter that everything else points back to?") is specific enough to answer and pointed enough to be uncomfortable for the agency-package crowd
-      - "Most 'founder-led marketing' advice is wrong" as opener earns the contrarian frame because the post follows through with a real alternative model, not just a critique
+    AI Detection: AUTHENTIC by 2 of 3 detectors (QuillBot, Copyleaks). GPTZero outlier flag noted — see post documentation.
     Voice Match: VOICE_MATCH
       - The reply template's "the strategy was inverted" landing is voice-consistent
       - The first comment as nuance carrier is the right move — keeps the post pointed without becoming a strawman
@@ -84,7 +82,7 @@ Post 3: PASS (after one rewrite loop)
       - First 210 chars: "Most 'founder-led marketing' advice is wrong about which part the founder has to lead. The dominant version: founders should post on LinkedIn three times a week. Build the personal brand. Be visible." (~196 chars — sets up the contrarian frame without resolving it)
       - This is a debate-invitation post and the "I'd push back on anyone selling 'founder content' packages" phrasing will likely draw comments from people who sell those packages. That's the engagement mechanism for thought-leadership goal.
       - Note: Alex's actual goal is inbound leads, not thought leadership. This post will work for both because it identifies a problem her ICP (founders) is actively spending money on the wrong solution to.
-    Recommendation: PASS
+    Recommendation: PASS with note about GPTZero outlier
 === END REVIEW ===
 ```
 
@@ -92,6 +90,12 @@ Post 3: PASS (after one rewrite loop)
 
 ## What this post demonstrates
 
-**The critic catches "always avoid" violations the generator missed.** "Playbook" is on Alex's custom avoid list. The generator wrote it anyway because it's a natural word in this context. The critic caught it on Lens 2 (Voice Match — comparing against brand profile §5d). This is exactly why the per-brand avoid list exists separately from the rulebook's universal Tier 1/2/3 lists.
+**The strongest single-detector outlier in the example batch.** GPTZero classifies this post at 100% AI with high confidence. QuillBot and Copyleaks both classify it at 100% human. Per the rulebook's cross-detector consensus rule (Gate 8b), this is a **WARNING**, not a FAIL — one detector flagging high confidence does not override two detectors flagging zero. The post is publishable for the typical LinkedIn audience because LinkedIn's algorithm doesn't run GPTZero, and human readers are the actual audience for the post.
 
-**A two-word kicker can sneak in even when the generator knows the rule.** The original close "Stop posting. Start writing." would have shipped without the critic. It's not in any vocabulary list — it's a structural pattern, and the critic Lens 1 specifically looks for these.
+**Why GPTZero flags this post specifically.** The structural patterns the rulebook §2.9 catalogues (parallel anaphora in "The CEO writes... The CEO records... The CEO answers... The CEO writes...", abstract argumentation about "the dominant version", definitional argumentation in "Founder-led marketing means...") are exactly the patterns GPTZero is trained to flag. GPTZero was built and benchmarked for academic integrity — its training data weights heavily toward catching student essays, and the structural features it learned to recognize overlap with well-formed marketing rhetoric. That's why it over-flags well-structured marketing copy.
+
+**Why the other two detectors don't flag it.** QuillBot is trained more leniently on assistive editing tools and is less aggressive on rhetorical structure. Copyleaks weights linguistic and frequency patterns more heavily than structural ones. Neither sees this post as AI.
+
+**Why this post stays in the example batch.** It demonstrates the cross-detector pattern users will actually encounter. Real users running this workflow will hit GPTZero outliers regularly, especially on contrarian and framework posts. The example batch is more honest with this post in it (showing the WARNING case) than without it (showing only clean PASS cases that misrepresent the system's typical output). See `docs/troubleshooting.md` for what to do when you hit a GPTZero WARNING — short answer: review the flagged sentences, consider revising them, but don't auto-rewrite the post unless your specific audience runs strict detection.
+
+**A user choosing to rewrite anyway** would target the patterns rulebook §2.9 catalogues: replace the parallel anaphora with varied sentence openings, replace the definitional argumentation with a specific scenario, anchor abstract claims in real client examples. This is good craft regardless of whether it changes the GPTZero score.

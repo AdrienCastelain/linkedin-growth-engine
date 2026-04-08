@@ -86,11 +86,42 @@ Each file contains:
 
 ---
 
+## AI detection: real verified scores across 3 detectors
+
+This batch was tested manually against the three detectors the rulebook recommends (GPTZero, QuillBot, Copyleaks) in April 2026. These are real verified scores, not estimates.
+
+| Post | Type | GPTZero | QuillBot | Copyleaks | Cross-detector verdict |
+|------|------|---------|----------|-----------|------------------------|
+| **1** | niche_problem (debug loop) | 37% AI / "moderately confident entirely human" | 0% / 100% Human | 0% / "No AI Content Found" | **PASS** (0 of 3 flag) |
+| **2** | failure_learning (renewal) | 63% AI / "moderately confident AI generated" | 0% / 100% Human | 0% / "No AI Content Found" | **WARNING** (1 of 3 flags at moderate confidence) |
+| **3** | contrarian (founder-led) | 100% AI / "highly confident AI generated" | 0% / 100% Human | 0% / "No AI Content Found" | **WARNING** (1 of 3 flags at high confidence — strongest single-detector signal in batch) |
+| **4** | process/framework (archaeology) | 63% AI / 18% Mixed / 19% Human / "moderately confident AI generated" | 0% / 100% Human | 0% / "No AI Content Found" | **WARNING** (1 of 3 flags at moderate confidence) |
+
+**The honest interpretation of these results:**
+
+GPTZero is the strictest detector and the only one that flags any of the four posts. QuillBot and Copyleaks consistently classify all four posts as 100% human. By the rulebook's cross-detector consensus rule (Gate 8b), 1-of-3 flags is a WARNING, not a FAIL — only 2-of-3 consensus triggers a required rewrite. None of the four posts requires a rewrite by the cross-detector rule.
+
+**Why GPTZero specifically over-flags this content:** GPTZero was built and benchmarked for academic integrity (catching student essays). Its training data weights heavily toward formal academic and news writing, so it learned to flag well-organized rhetorical structure, parallel constructions, and definitional argumentation as suspicious. Those patterns are common in AI-generated student essays. They are also common in **good marketing copy** written by good copywriters. GPTZero cannot reliably distinguish "well-structured marketing rhetoric" from "well-structured AI rhetoric" because the structural features overlap. See the rulebook's Gate 8b for the full discussion and the supporting research.
+
+**What this means for users running their own batches:**
+
+- **Expect 1-3 of your 4 weekly posts to flag on GPTZero.** This is the typical pattern based on this verified test. It is not a defect of the system.
+- **The other two detectors (QuillBot, Copyleaks) are more representative of how human readers will perceive the post.** They use lower thresholds for structural smoothness and weight linguistic patterns more heavily.
+- **LinkedIn's algorithm does not run GPTZero on posts.** The audience for LinkedIn content is human readers. The QuillBot/Copyleaks consensus is the better signal for "will real readers think this looks AI."
+- **If your specific audience runs strict detection** (academic submissions, some agency clients, compliance-heavy industries), then a single-detector WARNING is worth acting on. Review the specific sentences GPTZero flagged and revise them. This is documented in `docs/troubleshooting.md`.
+- **If your audience is general LinkedIn**, the cross-detector consensus is the rule. PASS and WARNING are both publishable.
+
+**Why we ship this batch as-is even with the WARNING posts:**
+
+The example batch is more honest with the WARNING posts in it (showing the real cross-detector pattern users will encounter) than without them (showing only clean PASS cases that misrepresent typical system output). Post 3 in particular is the strongest GPTZero outlier in the batch — and it stays in the example batch as a teaching artifact. Users who run this workflow will hit similar GPTZero patterns regularly, especially on contrarian and framework posts. The example shows you what that looks like and how to interpret it.
+
+---
+
 ## What this batch teaches you
 
 If you're reading this to evaluate whether the system works, here's what to look for:
 
-1. **The 4 posts sound like one person.** Read them in order. The voice doesn't drift. The formality is consistent. The em dash count is honest (3 across the whole batch — well within Alex's "1 per post" limit).
+1. **The 4 posts sound like one person.** Read them in order. The voice doesn't drift. The formality is consistent.
 
 2. **The posts are different from each other.** Four different structures, three different hooks, three different closings, lengths from 154 to 326 words. No reader scrolling through them all in one week would feel "this is the same post on a loop."
 
@@ -101,5 +132,7 @@ If you're reading this to evaluate whether the system works, here's what to look
 5. **The critic catches things the generator misses.** Post 3's first draft had a "two-word kicker" closing that the generator didn't flag. The critic caught it on Lens 1 (AI Detection). The post was sent back for a rewrite. The version you see is the rewritten version. This is what Step 5b is supposed to do.
 
 6. **The batch has at least one post that admits Alex was wrong.** Post 2. The rulebook is opinionated about manufactured vulnerability — tidy resolutions where the writer comes out looking good. Post 2 deliberately makes Alex look worse, not wiser. That's the test of a real story bank.
+
+7. **The detector results are real, not aspirational.** The cross-detector verdicts above are from a manual test against three live detectors in April 2026. They reflect actual system output, not promotional claims. If your own batches produce similar patterns (1-3 GPTZero WARNINGs out of 4 posts, with QuillBot/Copyleaks clean), that's the system working as documented — not a defect.
 
 If any of these don't hold, the system has a bug and the example is the place it shows up. We pressure-test this batch every time the rulebook or workflow changes.

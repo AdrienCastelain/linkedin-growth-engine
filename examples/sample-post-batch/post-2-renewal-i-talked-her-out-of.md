@@ -71,7 +71,7 @@ The user (or Alex herself, in this fictional case) approved using Story 2 as-is.
 | LinkedIn-specific | PASS | No false-opposition crutch. No symmetric phrase pairs. The "I wasn't being conservative. I was anchoring." line uses negation-reframe ONCE which the rulebook permits per §2.8. |
 | Honest limitation | PASS | The reply template explicitly admits "I was protecting myself, not her" — earned vulnerability |
 | Voice match | PASS | Alex's mixed rhythm, founder-to-founder register |
-| AI detection | 12% AI per GPTZero spot-check | PASS |
+| AI detection (3-detector cross-check) | **WARNING — single detector outlier** | GPTZero: **63% AI / "moderately confident this text was AI generated"** (single specific flag: the setup-payoff sentence "It wasn't data. It was a single observation...") • QuillBot: **0% AI / 100% Human** • Copyleaks: **0% AI / "No AI Content Found"** • Cross-detector verdict per Gate 8b: WARNING (1 of 3 detectors flags at moderate confidence — does not meet the FAIL threshold of 2+ detector consensus). Publishable for typical LinkedIn audiences. A user with a strict-detection audience could revise the flagged setup-payoff sentence (rulebook §2.9.3) to clear the GPTZero flag. |
 
 ---
 

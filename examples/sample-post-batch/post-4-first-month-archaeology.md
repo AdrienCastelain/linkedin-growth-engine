@@ -63,7 +63,7 @@
 | LinkedIn-specific | PASS | One negation-reframe used ("Not because the previous marketer was bad. Because the company changed") which is the rulebook §2.8 once-per-post allowance |
 | Honest limitation | PASS | First comment carries the harder version (founder-built dashboards), reply template carries the methodological nuance (60-day rule isn't universal) |
 | Voice match | PASS | Mixed rhythm, mostly short sentences, numbered list breaks the rhythm in the right place |
-| AI detection | 19% AI per GPTZero spot-check | PASS |
+| AI detection (3-detector cross-check) | **WARNING — single detector outlier** | GPTZero: **63% AI / 18% Mixed / 19% Human** ("moderately confident this text was AI generated") with the negation-reframe sentence "Not because the previous marketer was bad. Because the company changed faster than the measurement system did" specifically flagged • QuillBot: **0% AI / 100% Human** • Copyleaks: **0% AI / "No AI Content Found"** • Cross-detector verdict per Gate 8b: WARNING (1 of 3 detectors flags at moderate confidence — does not meet the FAIL threshold of 2+ detector consensus). The 18% Mixed signal on GPTZero is interesting — this is the only post in the batch where GPTZero detected partial human characteristics, fitting the post's structure of personal opening + framework section + personal closing. Publishable for typical LinkedIn audiences. |
 
 ---
 

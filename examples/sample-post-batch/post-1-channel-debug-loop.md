@@ -53,7 +53,7 @@
 | LinkedIn-specific | PASS | No "That's not a X. That's a Y." construct. 6 paragraphs, varied lengths. Hook + line break is one option among several across the batch. |
 | Honest limitation | PASS | First comment carries the limitation: "this only holds at the pre-Series A stage." |
 | Voice match | PASS | Read aloud, sounds like Alex from her samples |
-| AI detection (recommended) | 18% AI per GPTZero spot-check | PASS |
+| AI detection (3-detector cross-check) | **PASS** | GPTZero: **37% AI / "moderately confident this text is entirely human"** (verdict: human, 63% confidence) • QuillBot: **0% AI / 100% Human** • Copyleaks: **0% AI / "No AI Content Found"** • Cross-detector verdict per Gate 8b: PASS (0 of 3 detectors flag at high confidence; GPTZero's residual 37% is uncertainty, not a positive AI classification). The cleanest post in the example batch on every detector. |
 
 ---
 
